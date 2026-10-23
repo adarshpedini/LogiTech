@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LogicIQ | Learn, Solve & Master</title>
+<style>
+:root{color-scheme:dark;--bg:#16161c;--p1:#1e1e27;--p2:#262631;--bd:#34344a;--tx:#ececf4;--mu:#9a9ab3;--pu:#a78bfa;--pu2:#7c5cf0;--gr:#4ade80;--rd:#f87171;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#1b1b24;z-index:30}
+button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:2px solid var(--pu);outline-offset:2px}
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#1b1b24f2;border-bottom:1px solid var(--bd);backdrop-filter:blur(10px)}
+.wrap{max-width:1100px;margin:auto;padding:0 18px}
+.bar{display:flex;align-items:center;gap:18px;height:60px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:19px;background:none;border:0;padding:0}
+.logo i{font-style:normal;width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--pu2),var(--pu));display:grid;place-items:center;color:#fff}
+.logo b{color:var(--pu)}
+.nav{display:flex;gap:4px;flex:1;position:relative}
+.nl{background:none;border:0;padding:8px 13px;border-radius:9px;color:var(--mu);font-weight:600;font-size:14px}
+.nl:hover{color:var(--tx);background:var(--p2)}.nl.on{color:#fff;background:#7c5cf033}
+.dd{position:absolute;top:46px;left:230px;background:var(--p1);border:1px solid var(--bd);border-radius:12px;padding:8px;display:grid;grid-template-columns:1fr 1fr;gap:3px;width:min(440px,92vw);box-shadow:0 18px 40px #0008}
+.dd button{display:flex;gap:9px;align-items:center;background:none;border:0;padding:9px 10px;border-radius:8px;text-align:left;font-size:13px}
+.dd button:hover{background:var(--p2)}
+.chips{display:flex;gap:8px}
+.chip{background:var(--p2);border:1px solid var(--bd);border-radius:20px;padding:4px 11px;font-size:12px;white-space:nowrap}
+.burger{display:none;background:var(--p2);border:1px solid var(--bd);border-radius:9px;padding:6px 11px}
+main{padding:30px 0 50px}
+h1{font-size:clamp(26px,4.5vw,40px);line-height:1.15;margin:0 0 10px;letter-spacing:-1px}h2{font-size:20px;margin:0 0 10px}h3{font-size:15px;margin:0 0 8px}
+.pu{color:var(--pu)}.mu{color:var(--mu)}.sm{font-size:13px}
+.hero{background:linear-gradient(120deg,#2a2150,#1e1e27 70%);border:1px solid #4a3d85;border-radius:20px;padding:clamp(22px,4vw,40px);margin-bottom:22px}
+.hero p{max-width:540px;color:#c4c4dc}
+.btn{border:1px solid var(--bd);background:var(--p2);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px}
+.btn:hover{border-color:var(--pu)}.btn.p{background:linear-gradient(100deg,var(--pu2),#9470f5);border-color:transparent;color:#fff}.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:24px}
+.card{background:var(--p1);border:1px solid var(--bd);border-radius:16px;padding:18px}
+.tc{cursor:pointer;transition:.2s;text-align:left;width:100%;display:block}.tc:hover{border-color:var(--pu);transform:translateY(-3px)}
+.ic{font-size:24px;width:44px;height:44px;border-radius:12px;background:#7c5cf022;display:grid;place-items:center;margin-bottom:10px}
+.tag{font-size:10px;letter-spacing:1px;color:var(--pu);font-weight:700}
+.num{font-size:28px;font-weight:700;line-height:1.2}
+.sec{display:flex;justify-content:space-between;align-items:center;margin:28px 0 14px}.sec h2{margin:0}
+.tabs{display:flex;gap:4px;background:var(--p1);border:1px solid var(--bd);border-radius:12px;padding:4px;margin:16px 0;width:fit-content;max-width:100%;overflow-x:auto}
+.tb{background:none;border:0;border-radius:9px;padding:9px 16px;color:var(--mu);font-weight:600;white-space:nowrap}.tb.on{background:#7c5cf033;color:#fff}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+.fm{padding:13px;border:1px dashed #6b58c4;background:#7c5cf012;border-radius:10px;color:#d9ccff;font-weight:600;margin:12px 0}
+.tip{padding:12px 14px;border-radius:10px;background:var(--p2);border-left:3px solid var(--pu);font-size:13px;margin:12px 0}
+.fl{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}.fl label{font-size:12px;font-weight:600;color:var(--mu)}
+.fl input,.fl select,.fl textarea{background:#14141a;border:1px solid var(--bd);border-radius:10px;padding:10px 12px;width:100%}
+.fl textarea{min-height:84px;resize:vertical}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.res{margin-top:14px;padding:15px;border-radius:12px;background:#14141a;border:1px solid #3d6b52;white-space:pre-line;font-size:14px}.res.er{border-color:#7a3b3b;color:#fca5a5}
+.ch{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--bd);border-radius:10px;padding:12px;margin:8px 0;cursor:pointer;width:100%;text-align:left;background:none}
+.ch:hover{border-color:var(--pu)}.ch.sel{border-color:var(--pu);background:#7c5cf01c}.ch.ok{border-color:var(--gr);background:#4ade8014}.ch.no{border-color:var(--rd);background:#f8717114}
+.pg{height:6px;background:var(--p2);border-radius:6px;overflow:hidden}.pg span{display:block;height:100%;background:linear-gradient(90deg,var(--pu2),var(--pu))}
+.bars{display:flex;align-items:flex-end;gap:8px;height:150px;border-bottom:1px solid var(--bd);margin-top:10px}
+.bars div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:10px;color:var(--mu)}
+.bars i{display:block;width:100%;max-width:38px;border-radius:6px 6px 0 0;background:linear-gradient(var(--pu),var(--pu2))}
+.pie{width:140px;height:140px;border-radius:50%;margin:10px auto}
+.chips2{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.fc{background:var(--p1);border:1px solid var(--bd);border-radius:20px;padding:6px 14px;font-size:13px}.fc.on{background:#7c5cf033;border-color:var(--pu)}
+.ft{font-size:12px;color:var(--mu);text-align:center;padding:24px 0}
+@media(max-width:820px){.burger{display:block}.chips .hide{display:none}
+.nav{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:#1b1b24;padding:10px 18px;border-bottom:1px solid var(--bd)}.nav.open{display:flex}
+.dd{position:static;margin-top:6px;width:100%}.two{grid-template-columns:1fr}.bar{position:relative}.chips{margin-left:auto}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="wrap"><div class="bar" id="bar"></div></div></header>
+<main><div class="wrap" id="app"></div></main>
+<div class="ft">LogicIQ · Logic &amp; Data Interpretation · Progress saves in this browser</div>
+<script>
+const M=[
+{id:"clock",n:"Clock Problems",i:"🕒",t:"LOGIC",d:"Angles between hands and time reasoning.",f:"Angle = |30H − 5.5M|, then take min(angle, 360 − angle)",c:"The minute hand moves 6° per minute; the hour hand moves 0.5° per minute. Find each hand’s position and subtract.",e:"At 3:20 the minute hand is at 120° and the hour hand at 100°, so the angle is 20°.",tp:"The hour hand keeps moving while the minute hand moves.",
+ q:[["Smaller angle between the hands at 3:00?",["60°","90°","120°","30°"],1,"Hour hand at 90°, minute hand at 0°."],["Degrees moved by the minute hand in 10 minutes?",["30°","60°","90°","120°"],1,"6° per minute × 10 = 60°."],["Smaller angle at 6:00?",["90°","120°","180°","150°"],2,"The hands point in opposite directions."]]},
+{id:"calendar",n:"Calendar Problems",i:"📅",t:"LOGIC",d:"Weekdays, leap years and date maths.",f:"Weekday shift = days elapsed mod 7",c:"A normal year has 365 days (1 odd day). A leap year has 366 (2 odd days). Century years are leap years only if divisible by 400.",e:"If 1 Jan is Monday in a normal year, 1 Jan next year is Tuesday.",tp:"Count odd days (remainder after dividing by 7).",
+ q:[["Days in a leap year?",["364","365","366","367"],2,"A leap year includes 29 February."],["Which is a leap year?",["1700","1800","1900","2000"],3,"Century years must be divisible by 400."],["Odd days in a normal year?",["0","1","2","7"],1,"365 = 52×7 + 1."]]},
+{id:"pattern",n:"Figures & Patterns",i:"🧩",t:"LOGIC",d:"Sequences, rules and missing terms.",f:"Check differences → ratios → second differences",c:"Find the rule connecting terms. Try addition, then multiplication, then changing differences.",e:"2, 5, 8, 11 → add 3 → next is 14.",tp:"Always state the rule, not just the answer.",
+ q:[["Next: 3, 6, 9, 12, ?",["13","14","15","18"],2,"Add 3."],["Next: 2, 4, 8, 16, ?",["18","24","30","32"],3,"Multiply by 2."],["Next: 1, 4, 9, 16, ?",["20","24","25","36"],2,"Squares: 5² = 25."]]},
+{id:"table",n:"Tabular Data",i:"📋",t:"DATA",d:"Totals, averages and percentages.",f:"Average = Sum ÷ Count; % = Part ÷ Whole × 100",c:"Read headings and units first. Compute totals before percentages and compare like with like.",e:"Sales 20, 30, 40 total 90; average = 30.",tp:"Check whether a question wants absolute or percentage change.",
+ q:[["Average of 10, 20, 30?",["15","20","25","60"],1,"60 ÷ 3 = 20."],["40 → 50: percentage increase?",["10%","20%","25%","50%"],2,"10 ÷ 40 = 25%."],["Part 15 of whole 60 is what %?",["15%","20%","25%","30%"],2,"15 ÷ 60 × 100 = 25%."]]},
+{id:"barline",n:"Bar & Line Graphs",i:"📊",t:"CHARTS",d:"Compare categories and read trends.",f:"% change = (New − Old) ÷ Old × 100",c:"Bars compare categories; lines show change over ordered points. Always check the axis scale, and use the original value as the base for % change.",e:"A=40, B=60: B exceeds A by 20, which is 50% of A.",tp:"A rising line shows an increase, not necessarily a constant rate.",
+ q:[["A = 40, B = 60. B exceeds A by?",["10","20","40","50"],1,"60 − 40 = 20."],["80 → 100: % increase?",["20%","25%","30%","80%"],1,"20 ÷ 80 = 25%."],["80 → 60: % decrease?",["20%","25%","30%","33.3%"],1,"20 ÷ 80 = 25%."]]},
+{id:"pie",n:"Pie Charts",i:"🥧",t:"CHARTS",d:"Sector angles and proportions.",f:"Angle = (Value ÷ Total) × 360°",c:"A pie chart shows a whole as 100% or 360°. Convert each share to a percentage or angle.",e:"25% of the total → 0.25 × 360° = 90°.",tp:"All percentages total 100%; all angles total 360°.",
+ q:[["Angle for a 25% sector?",["45°","60°","90°","120°"],2,"25% × 360° = 90°."],["20% of 500?",["50","80","100","120"],2,"0.20 × 500 = 100."],["A 120° sector is what %?",["25%","30%","33.3%","40%"],2,"120 ÷ 360 = 33.3%."]]},
+{id:"scatter",n:"Scatter Diagrams",i:"🔵",t:"CHARTS",d:"Relationships between two variables.",f:"Correlation r ranges from −1 to +1; it never proves causation",c:"Each point is an (x, y) pair. Upward drift means positive association, downward means negative, a cloud means weak or none.",e:"Study hours and scores that rise together show positive association.",tp:"Association is not causation.",
+ q:[["Points rise left to right. Association?",["Negative","Positive","None","Causation"],1,"Upward trend = positive."],["Does correlation prove causation?",["Yes","No","Only if positive","Only large samples"],1,"It cannot establish cause."],["r = −0.9 suggests?",["Strong positive","Weak","Strong negative","None"],2,"Close to −1."]]},
+{id:"histogram",n:"Histograms",i:"📶",t:"CHARTS",d:"Frequency distributions and intervals.",f:"Class width = (Max − Min) ÷ Number of classes",c:"A histogram groups numeric data into continuous intervals; with equal widths, bar height is frequency. Bars touch because intervals are continuous.",e:"Values 1,2,2,3,4,4,4 can be grouped into intervals and counted.",tp:"Intervals must not overlap, so each value is counted once.",
+ q:[["A histogram shows?",["Categories only","Frequency distribution","One total","A calendar"],1,"It groups values into intervals."],["Why do the bars touch?",["Save space","Continuous intervals","Equal frequencies","Decoration"],1,"Adjacent intervals join."],["Range 0–50, 5 classes. Width?",["5","10","25","50"],1,"50 ÷ 5 = 10."]]},
+{id:"caselet",n:"Caselet & Web DI",i:"📚",t:"DATA",d:"Facts from paragraphs and KPI reports.",f:"A ∪ B = A + B − (A ∩ B); Rate = Done ÷ Total × 100",c:"Convert words into a small table first. Watch for ‘only’, ‘both’, ‘remaining’ and ‘at least’. For reports, read units and time periods.",e:"40 members: 25 cricket, 18 football, 8 both → 25 + 18 − 8 = 35 play at least one.",tp:"Subtract an overlap exactly once.",
+ q:[["25 cricket, 18 football, 8 both. At least one sport?",["35","43","51","33"],0,"25 + 18 − 8 = 35."],["40 students, 15 absent. Present?",["15","20","25","55"],2,"40 − 15 = 25."],["120 of 150 tasks done. Completion?",["70%","75%","80%","85%"],2,"120 ÷ 150 = 80%."]]},
+{id:"missing",n:"Missing DI",i:"🕵️",t:"DATA",d:"Find unknowns from totals and averages.",f:"Missing = Total − Sum of known values",c:"Turn the given total, average or ratio into an equation and solve. If an average is given, find the total first.",e:"Total 100; known 20, 25, 30 → missing = 25.",tp:"Total = Average × Count.",
+ q:[["Total 100; known 20, 25, 30. Missing?",["20","25","30","35"],1,"100 − 75 = 25."],["Average of 5 values is 12. Total?",["17","50","60","72"],2,"12 × 5 = 60."],["Average of 4 is 15; three sum to 40. Fourth?",["15","20","25","30"],1,"60 − 40 = 20."]]}
+];
+const byId=id=>M.find(m=>m.id===id);
+const nums=s=>{const a=String(s||"").split(/[\s,;]+/).filter(Boolean).map(Number);if(!a.length||a.some(x=>!isFinite(x)))throw Error("Enter valid numbers separated by commas.");return a};
+const F={ // solver fields
+ clock:[["hour","Hour (0–23)","15"],["minute","Minute (0–59)","20"]],
+ calendar:[["year","Year","2026"],["month","Month (1–12)","10"],["day","Day","23"]],
+ pattern:[["seq","Sequence (3+ numbers)","2, 5, 8, 11","t"]],
+ pie:[["vals","Category values","25, 35, 40","t"]],
+ scatter:[["vals","x,y pairs in order","1,2,2,4,3,6,4,8","t"]],
+ histogram:[["vals","Dataset values","12, 15, 22, 25, 31, 38, 41","t"]],
+ missing:[["total","Required total","100"],["known","Known values","20, 25, 30","t"]]};
+["table","barline","caselet"].forEach(k=>F[k]=[["vals","Dataset values","20, 30, 40, 50","t"]]);
+const sum=a=>a.reduce((s,v)=>s+v,0);
+function solve(id,f){
+ const n=k=>Number(f[k]);
+ if(id==="clock"){const h=n("hour"),m=n("minute");if(!Number.isInteger(h)||h<0||h>23||!Number.isInteger(m)||m<0||m>59||f.hour===""||f.minute==="")throw Error("Enter an hour from 0–23 and a minute from 0–59.");
+  const hp=(h%12)*30+m*.5,mp=m*6,d=Math.abs(hp-mp);return`Smaller angle: ${Math.min(d,360-d)}°\nHour hand: ${hp}°\nMinute hand: ${mp}°`}
+ if(id==="calendar"){const y=n("year"),mo=n("month"),d=n("day"),dt=new Date(y,mo-1,d);if(!(y>0)||dt.getFullYear()!==y||dt.getMonth()!==mo-1||dt.getDate()!==d)throw Error("Enter a valid date.");
+  const l=(y%4===0&&y%100!==0)||y%400===0;return`${dt.toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"})}\n${y} is ${l?"a leap year":"not a leap year"} (${l?366:365} days).`}
+ if(id==="pattern"){const a=nums(f.seq);if(a.length<3)throw Error("Enter at least three terms.");const d=a.slice(1).map((v,i)=>v-a[i]),L=a[a.length-1];
+  if(d.every(v=>v===d[0]))return`Rule: add ${d[0]} each time\nNext term: ${L+d[0]}`;
+  const r=a.slice(1).map((v,i)=>a[i]?v/a[i]:NaN);if(r.every(v=>v===r[0]&&isFinite(v)))return`Rule: multiply by ${r[0]} each time\nNext term: ${L*r[0]}`;
+  const s=d.slice(1).map((v,i)=>v-d[i]);if(s.length&&s.every(v=>v===s[0]))return`Rule: differences change by ${s[0]} each step\nNext term: ${L+d[d.length-1]+s[0]}`;
+  throw Error("No simple pattern found (arithmetic, geometric, or constant second difference).")}
+ if(id==="pie"){const a=nums(f.vals),t=sum(a);if(a.some(v=>v<0)||t<=0)throw Error("Use non-negative values with a positive total.");
+  return`Total: ${t}\n`+a.map((v,i)=>`Category ${i+1}: ${(v/t*100).toFixed(1)}% = ${(v/t*360).toFixed(1)}°`).join("\n")}
+ if(id==="scatter"){const a=nums(f.vals);if(a.length<4||a.length%2)throw Error("Enter an even number of values as x,y pairs (at least 2 pairs).");
+  const x=a.filter((_,i)=>!(i%2)),y=a.filter((_,i)=>i%2),mx=sum(x)/x.length,my=sum(y)/y.length;
+  const c=sum(x.map((v,i)=>(v-mx)*(y[i]-my))),vx=sum(x.map(v=>(v-mx)**2)),vy=sum(y.map(v=>(v-my)**2));if(!vx||!vy)throw Error("x or y values are all identical, so r is undefined.");
+  const r=c/Math.sqrt(vx*vy),s=Math.abs(r)>.6?"Strong":Math.abs(r)>.3?"Moderate":"Weak";return`Pairs: ${x.length}\nCorrelation r = ${r.toFixed(3)}\n${s} ${r>=0?"positive":"negative"} linear association.\nCorrelation does not prove causation.`}
+ if(id==="histogram"){const a=nums(f.vals),lo=Math.min(...a),hi=Math.max(...a),b=Math.min(6,Math.max(2,Math.ceil(Math.sqrt(a.length)))),w=(hi-lo||1)/b,c=Array(b).fill(0);
+  a.forEach(v=>c[Math.min(b-1,Math.floor((v-lo)/w))]++);return`Classes: ${b}, width ${w.toFixed(2)}\n`+c.map((k,i)=>`${(lo+i*w).toFixed(1)} – ${(lo+(i+1)*w).toFixed(1)}: ${k}`).join("\n")}
+ if(id==="missing"){const k=nums(f.known),t=n("total");if(f.total===""||!isFinite(t))throw Error("Enter a numeric total.");return`Sum of known: ${sum(k)}\nMissing value: ${t-sum(k)}`}
+ const a=nums(f.vals),t=sum(a),ch=a[a.length-1]-a[0];
+ return`Count: ${a.length}\nTotal: ${t}\nAverage: ${(t/a.length).toFixed(2)}\nMin / Max: ${Math.min(...a)} / ${Math.max(...a)}`+(a.length>1?`\nFirst → last change: ${ch}${a[0]?` (${(ch/Math.abs(a[0])*100).toFixed(1)}%)`:""}`:"")}
+function preview(id,f){let a=[];try{a=nums(f.vals)}catch(e){}if(!a.length)a=[18,32,25,45,38];
+ if(id==="scatter")return"";const mx=Math.max(...a.map(Math.abs),1);
+ if(id==="pie"){const t=sum(a.map(Math.abs))||1,col=["#a78bfa","#7c5cf0","#c4b5fd","#6d6d8a","#4c4c66"];let p=0;
+  return`<h3 style="margin-top:18px">Live chart</h3><div class="pie" style="background:conic-gradient(${a.map((v,i)=>{const s=p;p+=Math.abs(v)/t*100;return`${col[i%5]} ${s}% ${p}%`}).join(",")})"></div>`}
+ return`<h3 style="margin-top:18px">Live chart</h3><div class="bars">${a.slice(0,12).map(v=>`<div>${v}<i style="height:${Math.max(3,Math.abs(v)/mx*80)}%"></i></div>`).join("")}</div>`}
+
+let P={a:{},st:0,xp:0};try{P=Object.assign(P,JSON.parse(localStorage.getItem("liq2")||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem("liq2",JSON.stringify(P))}catch(e){}};
+const S={page:"home",id:"clock",tab:"learn",form:{},out:null,menu:0,nav:0,q:"",cat:"ALL",sess:null};
+const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const tot=()=>{let r=0,t=0;for(const k in P.a){r+=P.a[k][0];t+=P.a[k][1]}return[r,t]};
+const pct=(r,t)=>t?Math.round(r/t*100):0;
+
+function header(){
+ const L=[["home","Home"],["learn","Learn"],["practice","Practice"],["formulas","Formulas"],["progress","Progress"]];
+ $("#bar").innerHTML=`<button class="logo" data-a="go" data-v="home"><i>∑</i>Logic<b>IQ</b></button>
+ <nav class="nav ${S.nav?"open":""}">${L.map(([k,l])=>`<button class="nl ${S.page===k?"on":""}" data-a="go" data-v="${k}">${l}</button>`).join("")}
+ <button class="nl ${S.page==="topic"?"on":""}" data-a="menu">Topics ▾</button>
+ ${S.menu?`<div class="dd">${M.map(m=>`<button data-a="topic" data-v="${m.id}"><span>${m.i}</span>${m.n}</button>`).join("")}</div>`:""}</nav>
+ <div class="chips"><span class="chip">⚡ ${P.xp} XP</span><span class="chip hide">🔥 ${P.st} streak</span></div>
+ <button class="burger" data-a="burger" aria-label="Menu">☰</button>`}
+const $=s=>document.querySelector(s);
+const card=m=>`<button class="card tc" data-a="topic" data-v="${m.id}"><div class="ic">${m.i}</div><span class="tag">${m.t}</span><h3>${m.n}</h3><p class="mu sm" style="margin:0">${m.d}</p></button>`;
+
+function fields(id){return`<div class="fg">${F[id].filter(x=>x[3]!=="t").map(x=>`<div class="fl"><label>${x[1]}</label><input type="number" data-f="${x[0]}" value="${esc(S.form[x[0]]??"")}" placeholder="e.g. ${x[2]}"></div>`).join("")}</div>`+
+ F[id].filter(x=>x[3]==="t").map(x=>`<div class="fl"><label>${x[1]}</label><textarea data-f="${x[0]}" placeholder="e.g. ${x[2]}">${esc(S.form[x[0]]??"")}</textarea></div>`).join("")}
+
+function solver(m){return`<div class="card"><h2>Solver</h2><p class="mu sm">Enter values from your question and get a worked result.</p>${fields(m.id)}
+ <div class="row" style="margin-top:0"><button class="btn p" data-a="solve">Calculate</button><button class="btn" data-a="clear">Clear</button></div>
+ ${S.out?`<div class="res ${S.out.e?"er":""}">${esc(S.out.t)}</div>`:""}</div>
+ <div class="card"><h3>Formula</h3><div class="fm">${m.f}</div><p class="mu sm">${m.c}</p>${preview(m.id,S.form)}</div>`}
+
+function quizHTML(){const s=S.sess;
+ if(s.i>=s.qs.length){const p=pct(s.score,s.qs.length);return`<div class="card" style="text-align:center;max-width:520px;margin:auto"><div class="num pu">${p}%</div><h2>${p>=80?"Excellent work!":p>=50?"Good effort!":"Keep practising!"}</h2><p class="mu">You scored ${s.score} out of ${s.qs.length}.</p><div class="row" style="justify-content:center"><button class="btn p" data-a="start" data-v="${s.topic}">Try again</button><button class="btn" data-a="go" data-v="progress">View progress</button></div></div>`}
+ const q=s.qs[s.i],d=s.done;
+ return`<div class="card" style="max-width:700px;margin:auto"><div style="display:flex;justify-content:space-between" class="sm mu"><span>Question ${s.i+1} of ${s.qs.length}</span><span class="tag">${byId(q.id).n.toUpperCase()}</span></div>
+ <div class="pg" style="margin:10px 0 18px"><span style="width:${(s.i+(d?1:0))/s.qs.length*100}%"></span></div><h2>${q.q}</h2>
+ ${q.o.map((o,i)=>`<button class="ch ${s.pick===i?"sel":""} ${d&&i===q.a?"ok":""} ${d&&s.pick===i&&i!==q.a?"no":""}" data-a="pick" data-v="${i}" ${d?"disabled":""}><b>${"ABCD"[i]}.</b> ${o}</button>`).join("")}
+ ${d?`<div class="tip"><b>${s.pick===q.a?"Correct!":"Not quite."}</b> ${q.w}</div>`:""}
+ <div class="row">${d?`<button class="btn p" data-a="next">${s.i+1===s.qs.length?"See results":"Next →"}</button>`:`<button class="btn p" data-a="check" ${s.pick==null?"disabled":""}>Check answer</button>`}<button class="btn" data-a="topic" data-v="${q.id}">Review concept</button></div></div>`}
+
+function view(){
+ const [r,t]=tot();
+ if(S.page==="home")return`<section class="hero"><span class="tag">YOUR REASONING LAB</span><h1>Train your mind.<br><span class="pu">Master every problem.</span></h1><p>Learn the concept, solve with the calculator, then prove it in practice quizzes. Ten core logic and data interpretation topics in one place.</p>
+  <div class="row"><button class="btn p" data-a="go" data-v="learn">Start learning</button><button class="btn" data-a="start" data-v="all">Mixed practice quiz</button></div></section>
+  <div class="stats"><div class="card"><span class="mu sm">Topics</span><div class="num">${M.length}</div></div><div class="card"><span class="mu sm">Answered</span><div class="num">${t}</div></div><div class="card"><span class="mu sm">Accuracy</span><div class="num">${pct(r,t)}%</div></div><div class="card"><span class="mu sm">Best streak</span><div class="num">${P.best||0} 🔥</div></div></div>
+  <div class="sec"><h2>Popular topics</h2><button class="btn" data-a="go" data-v="learn">View all</button></div><div class="grid">${M.slice(0,4).map(card).join("")}</div>`;
+ if(S.page==="learn"){const f=M.filter(m=>(m.n+m.d).toLowerCase().includes(S.q.toLowerCase())&&(S.cat==="ALL"||m.t===S.cat));
+  return`<span class="tag">KNOWLEDGE HUB</span><h1>Learn the <span class="pu">logic</span> behind it.</h1><div class="fl" style="max-width:420px;margin-top:16px"><input id="sq" value="${esc(S.q)}" placeholder="Search topics…"></div>
+  <div class="chips2">${["ALL","LOGIC","DATA","CHARTS"].map(c=>`<button class="fc ${S.cat===c?"on":""}" data-a="cat" data-v="${c}">${c}</button>`).join("")}</div><div class="grid" id="grid">${f.map(card).join("")||"<p class=mu>No topics found.</p>"}</div>`}
+ if(S.page==="topic"){const m=byId(S.id);
+  return`<div style="display:flex;gap:14px;align-items:center"><div class="ic" style="width:56px;height:56px;font-size:28px;margin:0">${m.i}</div><div><span class="tag">${m.t} MODULE</span><h1 style="margin:0">${m.n}</h1></div></div><p class="mu">${m.d}</p>
+  <div class="tabs">${[["learn","📖 Learn"],["solve","⌘ Solve"],["practice","⚡ Practice"]].map(([k,l])=>`<button class="tb ${S.tab===k?"on":""}" data-a="tab" data-v="${k}">${l}</button>`).join("")}</div>
+  ${S.tab==="learn"?`<div class="two"><div class="card"><h2>Core concept</h2><p>${m.c}</p><div class="fm">${m.f}</div><h3>Worked example</h3><p>${m.e}</p><div class="tip">💡 ${m.tp}</div><button class="btn p" data-a="tab" data-v="solve">Try the solver →</button></div>
+   <div class="card"><h2>Quick revision</h2><p class="sm">① Identify what is given and what is asked.<br>② Pick the matching formula.<br>③ Calculate, then sanity-check units and totals.</p><button class="btn" data-a="start" data-v="${m.id}">Test my understanding →</button></div></div>`:""}
+  ${S.tab==="solve"?`<div class="two">${solver(m)}</div>`:""}
+  ${S.tab==="practice"?(S.sess&&S.sess.topic===m.id?quizHTML():`<div class="card"><h2>${m.q.length} practice questions</h2><p class="mu">Instant feedback with explanations.</p><button class="btn p" data-a="start" data-v="${m.id}">Start quiz</button></div>`):""}`}
+ if(S.page==="practice"){if(S.sess)return`<span class="tag">PRACTICE ARENA</span><h1>${S.sess.topic==="all"?"Mixed":"Topic"} <span class="pu">quiz</span></h1><div style="margin-top:18px">${quizHTML()}</div>`;
+  return`<span class="tag">PRACTICE ARENA</span><h1>Test your <span class="pu">skills.</span></h1><p class="mu">Choose a mixed 10-question quiz or focus on one topic.</p><div class="row"><button class="btn p" data-a="start" data-v="all">Mixed quiz (10 questions)</button></div><div class="sec"><h2>Or pick a topic</h2></div><div class="grid">${M.map(m=>`<button class="card tc" data-a="start" data-v="${m.id}"><div class="ic">${m.i}</div><h3>${m.n}</h3><span class="mu sm">${m.q.length} questions</span></button>`).join("")}</div>`}
+ if(S.page==="formulas")return`<span class="tag">CHEAT SHEET</span><h1>Formula <span class="pu">reference.</span></h1><p class="mu">Every key formula and tip, in one place.</p><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:18px">${M.map(m=>`<div class="card"><h3>${m.i} ${m.n}</h3><div class="fm">${m.f}</div><p class="mu sm" style="margin:0">💡 ${m.tp}</p></div>`).join("")}</div>`;
+ return`<span class="tag">YOUR PROGRESS</span><h1>Learning <span class="pu">dashboard.</span></h1><div class="stats" style="margin-top:18px"><div class="card"><span class="mu sm">XP earned</span><div class="num">${P.xp}</div></div><div class="card"><span class="mu sm">Answered</span><div class="num">${t}</div></div><div class="card"><span class="mu sm">Accuracy</span><div class="num">${pct(r,t)}%</div></div><div class="card"><span class="mu sm">Best streak</span><div class="num">${P.best||0}</div></div></div>
+  <div class="card"><h2>Accuracy by topic</h2>${M.map(m=>{const a=P.a[m.id]||[0,0];return`<div style="margin:12px 0"><div style="display:flex;justify-content:space-between" class="sm"><span>${m.i} ${m.n}</span><span class="mu">${a[1]?`${a[0]}/${a[1]} · ${pct(a[0],a[1])}%`:"Not attempted"}</span></div><div class="pg"><span style="width:${pct(a[0],a[1])}%"></span></div></div>`}).join("")}<button class="btn" data-a="reset">Reset progress</button></div>`}
+function render(){header();$("#app").innerHTML=`<div class="page">${view()}</div>`}
+
+document.addEventListener("click",e=>{
+ const el=e.target.closest("[data-a]");if(!el){if(S.menu&&!e.target.closest(".dd")){S.menu=0;header()}return}
+ const a=el.dataset.a,v=el.dataset.v;
+ if(a==="menu"){S.menu=!S.menu;return header()}
+ if(a==="burger"){S.nav=!S.nav;return header()}
+ S.menu=0;S.nav=0;
+ if(a==="go"){S.page=v;if(v==="practice")S.sess=null}
+ else if(a==="topic"){S.page="topic";S.id=v;S.tab="learn";S.form={};S.out=null;S.sess=null}
+ else if(a==="tab"){S.tab=v;S.out=null;if(v==="solve")S.form={}}
+ else if(a==="cat")S.cat=v;
+ else if(a==="clear"){S.form={};S.out=null}
+ else if(a==="solve"){try{S.out={t:solve(S.id,S.form)}}catch(x){S.out={t:x.message,e:1}}}
+ else if(a==="start"){let qs=[];const mk=m=>m.q.map(q=>({id:m.id,q:q[0],o:q[1],a:q[2],w:q[3]}));
+  if(v==="all"){qs=M.flatMap(mk).sort(()=>Math.random()-.5).slice(0,10);S.page="practice"}else{qs=mk(byId(v)).sort(()=>Math.random()-.5);S.id=v;if(S.page!=="practice"){S.page="topic";S.tab="practice"}}
+  S.sess={topic:v,qs,i:0,pick:null,done:0,score:0}}
+ else if(a==="pick")S.sess.pick=+v;
+ else if(a==="check"){const s=S.sess,q=s.qs[s.i],ok=s.pick===q.a;s.done=1;P.a[q.id]=P.a[q.id]||[0,0];P.a[q.id][1]++;
+  if(ok){s.score++;P.a[q.id][0]++;P.xp+=10;P.st++;P.best=Math.max(P.best||0,P.st)}else P.st=0;save()}
+ else if(a==="next"){const s=S.sess;s.i++;s.pick=null;s.done=0}
+ else if(a==="reset"){if(confirm("Reset all saved progress?")){P={a:{},st:0,xp:0};save()}}
+ render();window.scrollTo(0,0)});
+document.addEventListener("input",e=>{
+ if(e.target.dataset.f){S.form[e.target.dataset.f]=e.target.value;S.out=null}
+ if(e.target.id==="sq"){S.q=e.target.value;const f=M.filter(m=>(m.n+m.d).toLowerCase().includes(S.q.toLowerCase())&&(S.cat==="ALL"||m.t===S.cat));$("#grid").innerHTML=f.map(card).join("")||"<p class=mu>No topics found.</p>"}});
+render();
+</script>
+</body>
+</html>
